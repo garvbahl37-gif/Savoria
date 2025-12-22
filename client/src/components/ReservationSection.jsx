@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 const ReservationSection = () => {
     const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const ReservationSection = () => {
         setStatus({ type: '', message: '' });
 
         try {
-            await axios.post('http://localhost:5000/api/reservations', formData);
+            await axios.post(`${API_URL}/api/reservations`, formData);
             setStatus({ type: 'success', message: 'Reservation confirmed! We look forward to seeing you.' });
             setFormData({ name: '', phone: '', email: '', date: '', time: '', guests: '2' });
         } catch (error) {

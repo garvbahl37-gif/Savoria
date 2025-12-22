@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 const Newsletter = () => {
     const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ const Newsletter = () => {
         setStatus({ loading: true, type: 'loading', message: '' });
 
         try {
-            await axios.post('http://localhost:5000/api/newsletter/subscribe', { email });
+            await axios.post(`${API_URL}/api/newsletter/subscribe`, { email });
             setStatus({ loading: false, type: 'success', message: 'Welcome to the inner circle! Check your inbox.' });
             setEmail('');
 

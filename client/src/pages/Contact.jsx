@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Users, Phone, Mail, MapPin } from 'lucide-react';
 
@@ -23,7 +24,7 @@ const Contact = () => {
         e.preventDefault();
         setStatus('submitting');
         try {
-            await axios.post('http://localhost:5000/api/reservations', formData);
+            await axios.post(`${API_URL}/api/reservations`, formData);
             setStatus('success');
             setFormData({ name: '', email: '', phone: '', date: '', time: '', guests: '', specialRequest: '' });
         } catch (error) {

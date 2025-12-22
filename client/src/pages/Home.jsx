@@ -11,6 +11,7 @@ import About from '../components/About';
 import Team from '../components/Team';
 import ReservationSection from '../components/ReservationSection';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 const Home = () => {
     const [featuredDishes, setFeaturedDishes] = useState([]);
@@ -19,7 +20,7 @@ const Home = () => {
     useEffect(() => {
         const fetchFeatures = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/menu');
+                const res = await axios.get(`${API_URL}/api/menu`);
                 // Get 6 random dishes for grid
                 const shuffled = res.data.sort(() => 0.5 - Math.random());
                 setFeaturedDishes(shuffled.slice(0, 6)); // Foody design has 6 or 8

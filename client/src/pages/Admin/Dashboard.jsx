@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../../config';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -10,7 +11,7 @@ const Dashboard = () => {
         const fetchReservations = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await axios.get('http://localhost:5000/api/reservations', {
+                const res = await axios.get(`${API_URL}/api/reservations`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setReservations(res.data);
@@ -28,7 +29,7 @@ const Dashboard = () => {
     const updateStatus = async (id, status) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch(`http://localhost:5000/api/reservations/${id}`, { status }, {
+            await axios.patch(`${API_URL}/api/reservations/${id}`, { status }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setReservations(reservations.map(r => r._id === id ? { ...r, status } : r));

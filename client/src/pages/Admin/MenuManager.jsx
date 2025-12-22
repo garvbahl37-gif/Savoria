@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../../config';
 import { Plus, Trash, Edit } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ const MenuManager = () => {
 
     const fetchItems = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/menu');
+            const res = await axios.get(`${API_URL}/api/menu`);
             setItems(res.data);
         } catch (error) {
             console.error("Error fetching menu");
@@ -25,7 +26,7 @@ const MenuManager = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:5000/api/menu', newItem, {
+            await axios.post(`${API_URL}/api/menu`, newItem, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setNewItem({ name: '', description: '', price: '', category: '', image: '' });
@@ -39,7 +40,7 @@ const MenuManager = () => {
         if (!window.confirm("Are you sure?")) return;
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/menu/${id}`, {
+            await axios.delete(`${API_URL}/api/menu/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchItems();

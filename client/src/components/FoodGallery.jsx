@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 const FoodGallery = () => {
     const [images, setImages] = useState([]);
@@ -20,7 +21,7 @@ const FoodGallery = () => {
         const fetchImages = async () => {
             try {
                 // Fetch menu items
-                const res = await axios.get('http://localhost:5000/api/menu');
+                const res = await axios.get(`${API_URL}/api/menu`);
                 // Fisher-Yates shuffle
                 const shuffled = [...res.data];
                 for (let i = shuffled.length - 1; i > 0; i--) {

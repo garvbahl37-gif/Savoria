@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config';
 import { BadgeCheck, ArrowLeft, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -17,7 +18,7 @@ const Menu = () => {
     const fetchMenuItems = async () => {
         try {
             await new Promise(resolve => setTimeout(resolve, 800)); // Min load time for smooth UX
-            const response = await axios.get('http://localhost:5000/api/menu');
+            const response = await axios.get(`${API_URL}/api/menu`);
             setMenuItems(response.data);
 
             // Extract unique categories
