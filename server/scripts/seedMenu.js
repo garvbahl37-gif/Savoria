@@ -11,7 +11,7 @@ const menuItems = [
         description: "Crispy risotto balls infused with black truffle, served with garlic aioli.",
         price: 14,
         category: "Starters",
-        image: "https://images.unsplash.com/photo-1541529086526-db283c563270?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1541014741259-de529411b96a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
     {
@@ -19,7 +19,7 @@ const menuItems = [
         description: "Fresh burrata cheese, grilled peaches, basil pesto, and balsamic glaze.",
         price: 18,
         category: "Starters",
-        image: "https://images.unsplash.com/photo-1563503676-e820c74c9351?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1608039257262-4217343e7b2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
     {
@@ -27,7 +27,7 @@ const menuItems = [
         description: "Thinly sliced raw wagyu beef, parmesan shavings, capers, and truffle oil.",
         price: 22,
         category: "Starters",
-        image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1502597863579-0298d659e995?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
 
@@ -37,7 +37,7 @@ const menuItems = [
         description: "Jumbo diver scallops with cauliflower purée, crispy pancetta, and lemon butter.",
         price: 34,
         category: "Mains",
-        image: "https://images.unsplash.com/photo-1532465560565-d6e0dbd3d2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
     {
@@ -45,7 +45,7 @@ const menuItems = [
         description: "Served pink with fondant potatoes, seasonal greens, and a red wine reduction.",
         price: 42,
         category: "Mains",
-        image: "https://images.unsplash.com/photo-1544510802-38392ba3af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
     {
@@ -53,7 +53,7 @@ const menuItems = [
         description: "Arborio rice cooked with porcini mushrooms, parmesan, and fresh herbs.",
         price: 28,
         category: "Mains",
-        image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1633964893963-441655bdf79f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
     {
@@ -61,7 +61,7 @@ const menuItems = [
         description: "Sustainably sourced cod fillet marinated in miso, served with bok choy.",
         price: 36,
         category: "Mains",
-        image: "https://images.unsplash.com/photo-1534939561126-855b8675edd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
 
@@ -71,7 +71,7 @@ const menuItems = [
         description: "Molten center chocolate cake served with vanilla bean ice cream.",
         price: 14,
         category: "Desserts",
-        image: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
     {
@@ -87,7 +87,7 @@ const menuItems = [
         description: "Layers of phyllo pastry filled with chopped pistachios and honey syrup.",
         price: 13,
         category: "Desserts",
-        image: "https://images.unsplash.com/photo-1519676867240-f03562e64548?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1589119156653-5d51f67f2599?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
 
@@ -97,7 +97,7 @@ const menuItems = [
         description: "Bourbon, smoked maple syrup, angostura bitters, and orange peel.",
         price: 16,
         category: "Drinks",
-        image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         isAvailable: true
     },
     {

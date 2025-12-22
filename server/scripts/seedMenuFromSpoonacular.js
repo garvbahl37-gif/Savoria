@@ -50,7 +50,7 @@ const seedMenu = async () => {
                 description: cleanText(item.summary),
                 price: Math.floor(Math.random() * (30 - 12 + 1) + 12), // Random price between $12 and $30 as API prices are sometimes weird
                 category: cat.dbCategory,
-                image: item.image,
+                image: item.image.replace(/-\d+x\d+/, '-636x393'), // Force higher resolution
                 isAvailable: true
             }));
 

@@ -42,10 +42,10 @@ const Team = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
                     {[
-                        { name: "JOHNATHAN TYLER", role: "Founder & Head Chef", img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" },
+                        { name: "JOHNATHAN TYLER", role: "Founder & Head Chef", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" },
                         { name: "WADE WARREN", role: "Sous Chef", img: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" },
-                        { name: "JHON DOE", role: "Fast Food Chef", img: "https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" },
-                        { name: "ALEX COAL", role: "Senior Chef", img: "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" }
+                        { name: "JHON DOE", role: "Fast Food Chef", img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" },
+                        { name: "ALEX COAL", role: "Senior Chef", img: "https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" }
                     ].map((member, idx) => (
                         <motion.div
                             key={idx}
