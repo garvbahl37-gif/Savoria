@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #F4F1DE;
-  color: #1B1B1B;
-  font-family: 'Open Sans', sans-serif;
+@layer base {
+  body {
+    @apply bg-cream text-secondary dark:bg-secondary dark:text-cream transition-colors duration-300;
+  }
 }

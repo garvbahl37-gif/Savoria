@@ -38,7 +38,7 @@ const ReservationSection = () => {
     };
 
     return (
-        <section id="reservation" className="py-24 bg-cream relative overflow-hidden flex items-center justify-center min-h-[80vh]">
+        <section id="reservation" className="py-24 bg-cream dark:bg-secondary relative overflow-hidden flex items-center justify-center min-h-[80vh] transition-colors duration-300">
             {/* Background Composition */}
             <div className="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden">
                 <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]"></div>
@@ -56,11 +56,11 @@ const ReservationSection = () => {
                 >
                     <div className="relative z-10 mb-12">
                         <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Table Service</span>
-                        <h2 className="text-6xl font-header font-bold text-secondary leading-[1.1]">
+                        <h2 className="text-6xl font-header font-bold text-secondary dark:text-cream leading-[1.1]">
                             Book Your <br />
                             <span className="text-primary italic font-serif">Moment</span>
                         </h2>
-                        <p className="text-gray-500 mt-6 max-w-md text-lg leading-relaxed">
+                        <p className="text-gray-500 dark:text-gray-300 mt-6 max-w-md text-lg leading-relaxed">
                             Whether it's a romantic dinner or a family gathering, we ensure every detail is perfect. Experience the art of hospitality.
                         </p>
                     </div>
@@ -83,17 +83,17 @@ const ReservationSection = () => {
                     transition={{ duration: 0.8 }}
                     className="lg:col-span-6 w-full"
                 >
-                    <div className="bg-white/80 backdrop-blur-xl border border-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                    <div className="bg-white/80 dark:bg-white/10 backdrop-blur-xl border border-white dark:border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
 
                         <div className="mb-8">
-                            <h3 className="text-3xl font-header font-bold text-secondary">Secure Your Table</h3>
+                            <h3 className="text-3xl font-header font-bold text-secondary dark:text-white">Secure Your Table</h3>
                             <p className="text-gray-400 text-sm mt-2">Reservations are recommended 2 days in advance.</p>
                         </div>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-secondary text-xs font-bold uppercase tracking-wider">Name</label>
+                                    <label className="text-secondary dark:text-cream text-xs font-bold uppercase tracking-wider">Name</label>
                                     <input
                                         name="name"
                                         value={formData.name}
@@ -101,11 +101,11 @@ const ReservationSection = () => {
                                         type="text"
                                         required
                                         placeholder="John Doe"
-                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium placeholder-gray-300"
+                                        className="w-full bg-gray-50 dark:bg-secondary/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-secondary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium placeholder-gray-300"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-secondary text-xs font-bold uppercase tracking-wider">Phone</label>
+                                    <label className="text-secondary dark:text-cream text-xs font-bold uppercase tracking-wider">Phone</label>
                                     <input
                                         name="phone"
                                         value={formData.phone}
@@ -113,13 +113,13 @@ const ReservationSection = () => {
                                         type="tel"
                                         required
                                         placeholder="+1 234..."
-                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium placeholder-gray-300"
+                                        className="w-full bg-gray-50 dark:bg-secondary/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-secondary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium placeholder-gray-300"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-secondary text-xs font-bold uppercase tracking-wider">Email</label>
+                                <label className="text-secondary dark:text-cream text-xs font-bold uppercase tracking-wider">Email</label>
                                 <input
                                     name="email"
                                     value={formData.email}
@@ -127,27 +127,27 @@ const ReservationSection = () => {
                                     type="email"
                                     required
                                     placeholder="john@example.com"
-                                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium placeholder-gray-300"
+                                    className="w-full bg-gray-50 dark:bg-secondary/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-secondary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium placeholder-gray-300"
                                 />
                             </div>
 
                             <div className="grid grid-cols-3 gap-4">
                                 <div className="space-y-2 col-span-1">
-                                    <label className="text-secondary text-xs font-bold uppercase tracking-wider">Guests</label>
+                                    <label className="text-secondary dark:text-cream text-xs font-bold uppercase tracking-wider">Guests</label>
                                     <select
                                         name="guests"
                                         value={formData.guests}
                                         onChange={handleChange}
-                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium h-[50px]"
+                                        className="w-full bg-gray-50 dark:bg-secondary/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-secondary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium h-[50px]"
                                     >
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5+</option>
+                                        <option value="2" className="text-secondary">2</option>
+                                        <option value="3" className="text-secondary">3</option>
+                                        <option value="4" className="text-secondary">4</option>
+                                        <option value="5" className="text-secondary">5+</option>
                                     </select>
                                 </div>
                                 <div className="space-y-2 col-span-2">
-                                    <label className="text-secondary text-xs font-bold uppercase tracking-wider">When?</label>
+                                    <label className="text-secondary dark:text-cream text-xs font-bold uppercase tracking-wider">When?</label>
                                     <div className="flex gap-2">
                                         <input
                                             name="date"
@@ -155,7 +155,7 @@ const ReservationSection = () => {
                                             onChange={handleChange}
                                             type="date"
                                             required
-                                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-sm"
+                                            className="w-full bg-gray-50 dark:bg-secondary/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-secondary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-sm"
                                         />
                                         <input
                                             name="time"
@@ -163,13 +163,13 @@ const ReservationSection = () => {
                                             onChange={handleChange}
                                             type="time"
                                             required
-                                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-sm"
+                                            className="w-full bg-gray-50 dark:bg-secondary/50 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-secondary dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-sm"
                                         />
                                     </div>
                                 </div>
                             </div>
 
-                            <button disabled={loading} className="w-full bg-secondary text-white font-header font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-primary hover:text-white transition-all mt-4 shadow-xl hover:shadow-2xl hover:-translate-y-1 group flex items-center justify-center gap-3 disabled:opacity-50">
+                            <button disabled={loading} className="w-full bg-secondary dark:bg-primary text-white font-header font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-primary dark:hover:bg-primary/80 hover:text-white transition-all mt-4 shadow-xl hover:shadow-2xl hover:-translate-y-1 group flex items-center justify-center gap-3 disabled:opacity-50">
                                 {loading ? 'Processing...' : 'Confirm Table'}
                                 {!loading && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
                             </button>

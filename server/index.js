@@ -27,7 +27,7 @@ app.use('/api/newsletter', newsletterRoutes);
 // 🔐 Protected routes (USER MUST BE LOGGED IN)
 app.use(
   '/api/reservations',
-  ClerkExpressRequireAuth(),
+  // ClerkExpressRequireAuth(), // REMOVED: Managed inside routes to allow public POST
   reservationRoutes
 );
 
