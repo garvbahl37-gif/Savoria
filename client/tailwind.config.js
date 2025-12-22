@@ -8,14 +8,15 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "#E07A5F", // Terracotta
-                secondary: "#264653", // Deep Sage / Charcoal
-                accent: "#E9C46A", // Sandy Gold
-                cream: "#F4F1DE", // Parchment
+                primary: "#D4AF37", // Rich Gold
+                secondary: "#111111", // Dark Charcoal / Black
+                accent: "#FFFFFF", // White
+                muted: "#888888", // Gray text
+                cream: "#F4F1DE", // Keeping cream as a utility just in case
             },
             fontFamily: {
-                header: ["'Oswald'", "sans-serif"],
-                body: ["'Open Sans'", "sans-serif"],
+                serif: ["'Playfair Display'", "serif"],
+                sans: ["'Lato'", "sans-serif"],
             },
         },
     },

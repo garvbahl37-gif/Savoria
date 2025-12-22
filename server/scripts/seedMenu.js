@@ -19,7 +19,7 @@ const menuItems = [
         description: "Fresh burrata cheese, grilled peaches, basil pesto, and balsamic glaze.",
         price: 18,
         category: "Starters",
-        image: "https://images.unsplash.com/photo-1608039257262-4217343e7b2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://loremflickr.com/800/600/burrata,peach?lock=1",
         isAvailable: true
     },
     {
@@ -27,7 +27,7 @@ const menuItems = [
         description: "Thinly sliced raw wagyu beef, parmesan shavings, capers, and truffle oil.",
         price: 22,
         category: "Starters",
-        image: "https://images.unsplash.com/photo-1502597863579-0298d659e995?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://loremflickr.com/800/600/carpaccio,beef?lock=2",
         isAvailable: true
     },
 
@@ -53,7 +53,7 @@ const menuItems = [
         description: "Arborio rice cooked with porcini mushrooms, parmesan, and fresh herbs.",
         price: 28,
         category: "Mains",
-        image: "https://images.unsplash.com/photo-1633964893963-441655bdf79f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://loremflickr.com/800/600/risotto,mushroom?lock=3",
         isAvailable: true
     },
     {
@@ -71,7 +71,7 @@ const menuItems = [
         description: "Molten center chocolate cake served with vanilla bean ice cream.",
         price: 14,
         category: "Desserts",
-        image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://loremflickr.com/800/600/chocolate,fondant?lock=4",
         isAvailable: true
     },
     {
@@ -87,7 +87,7 @@ const menuItems = [
         description: "Layers of phyllo pastry filled with chopped pistachios and honey syrup.",
         price: 13,
         category: "Desserts",
-        image: "https://images.unsplash.com/photo-1589119156653-5d51f67f2599?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://loremflickr.com/800/600/baklava?lock=5",
         isAvailable: true
     },
 

@@ -9,24 +9,29 @@ import Contact from './pages/Contact';
 import DesignOverlay from './components/DesignOverlay';
 import Chatbot from './components/Chatbot';
 
-function App() {
-  return (
-    <Router>
-      <DesignOverlay />
-      <Chatbot />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
-  );
-}
+import ScrollToTop from './components/ScrollToTop';
 
 export default App;
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Router>
+        <ScrollToTop />
+        <DesignOverlay />
+        <Chatbot />
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
+}

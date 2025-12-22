@@ -3,30 +3,58 @@ import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="bg-secondary text-white py-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <footer id="contact" className="bg-secondary text-white py-20 border-t border-white/5">
+            <div className="max-w-7xl mx-auto px-6 text-center">
+
+                {/* Brand */}
+                <div className="mb-16">
+                    <h2 className="font-serif text-4xl text-primary mb-2">Savoria</h2>
+                    <p className="font-sans text-xs tracking-[0.3em] uppercase text-gray-500">Fine Italian Cuisine</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 font-light">
+                    {/* Address */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4">GourmetHash</h3>
-                        <p className="text-gray-400">Experience the finest dining in the heart of the city.</p>
+                        <h3 className="text-primary font-sans font-bold text-xs tracking-[0.2em] uppercase mb-6">Address</h3>
+                        <p className="text-gray-400 leading-loose">
+                            123 Via Roma<br />
+                            Downtown District<br />
+                            City, State 10001
+                        </p>
                     </div>
+
+                    {/* Hours */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Contact</h3>
-                        <p className="text-gray-400">123 Culinary Ave, Foodie City</p>
-                        <p className="text-gray-400">+1 234 567 8900</p>
-                        <p className="text-gray-400">info@gourmethash.com</p>
+                        <h3 className="text-primary font-sans font-bold text-xs tracking-[0.2em] uppercase mb-6">Hours</h3>
+                        <p className="text-gray-400 leading-loose">
+                            Tuesday - Thursday: 6PM - 10PM<br />
+                            Friday - Saturday: 6PM - 11PM<br />
+                            Sunday: 5PM - 9PM
+                        </p>
                     </div>
+
+                    {/* Contact */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-                        <div className="flex space-x-4">
-                            <a href="#" className="hover:text-primary transition-colors"><Facebook /></a>
-                            <a href="#" className="hover:text-primary transition-colors"><Instagram /></a>
-                            <a href="#" className="hover:text-primary transition-colors"><Twitter /></a>
-                        </div>
+                        <h3 className="text-primary font-sans font-bold text-xs tracking-[0.2em] uppercase mb-6">Contact</h3>
+                        <p className="text-gray-400 leading-loose">
+                            +1 (555) 234-5678<br />
+                            reservations@ladolcevita.com
+                        </p>
                     </div>
                 </div>
-                <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500">
-                    &copy; {new Date().getFullYear()} GourmetHash. All rights reserved.
+
+                {/* Socials */}
+                <div className="flex justify-center space-x-8 mb-16">
+                    <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all">
+                        <Instagram size={18} />
+                    </a>
+                    <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all">
+                        <Facebook size={18} />
+                    </a>
+                </div>
+
+                <div className="text-gray-600 text-xs tracking-widest uppercase">
+                    &copy; {new Date().getFullYear()} Savoria. All rights reserved.
                 </div>
             </div>
         </footer>
