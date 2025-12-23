@@ -17,6 +17,7 @@ export default {
             fontFamily: {
                 serif: ["'Italiana'", "serif"],
                 sans: ["'Montserrat'", "sans-serif"],
+                display: ["'Cormorant Garamond'", "serif"],
             },
         },
     },

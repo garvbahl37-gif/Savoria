@@ -62,9 +62,9 @@ const Home = () => {
                             <motion.h2
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="text-6xl md:text-8xl font-header font-light text-secondary mb-6 leading-tight"
+                                className="text-6xl md:text-8xl font-display font-medium text-secondary mb-6 leading-tight italic"
                             >
-                                Crowd <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-600 italic font-serif">Favorites</span>
+                                Crowd <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-600 font-bold">Favorites</span>
                             </motion.h2>
                             <div className="w-24 h-0.5 bg-gradient-to-r from-primary to-transparent mb-6"></div>
                         </div>
@@ -72,7 +72,7 @@ const Home = () => {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}
-                            className="hidden md:block max-w-sm text-right text-gray-500 text-lg font-light leading-relaxed"
+                            className="hidden md:block max-w-sm text-right text-gray-500 text-lg font-normal leading-relaxed"
                         >
                             <p>Hand-picked daily specials that define our culinary identity. Tasted and loved by thousands for their authentic taste.</p>
                         </motion.div>
@@ -114,13 +114,13 @@ const Home = () => {
                                     {/* Luxury Price Tag */}
                                     <div className="absolute top-6 right-6 z-20">
                                         <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500">
-                                            <span className="font-header text-xl text-primary font-light italic">${dish.price || '24'}</span>
+                                            <span className="font-header text-xl text-primary font-medium italic">${dish.price || '24'}</span>
                                         </div>
                                     </div>
 
                                     {/* Content Area */}
                                     <div className={`absolute bottom-0 left-0 w-full p-8 z-20 transition-all duration-700 ${expandedDishId === dish._id ? 'translate-y-0' : 'translate-y-2 group-hover:translate-y-0'}`}>
-                                        <h3 className="text-4xl font-header font-light text-white mb-3 leading-none tracking-wide">
+                                        <h3 className="text-4xl font-header font-medium text-white mb-3 leading-none tracking-wide">
                                             {dish.name}
                                         </h3>
 
@@ -132,16 +132,16 @@ const Home = () => {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 className="mt-4"
                                             >
-                                                <p className="text-gray-300 text-base leading-relaxed mb-6 font-light italic border-l-2 border-primary/50 pl-4">
+                                                <p className="text-gray-300 text-base leading-relaxed mb-6 font-medium italic border-l-2 border-primary/50 pl-4">
                                                     "{dish.specialty || "A signature creation featuring locally sourced ingredients and a balance of traditional flavors."}"
                                                 </p>
                                                 <p className="text-primary/80 text-xs uppercase tracking-widest mb-2 font-bold">Perfect Pairing</p>
-                                                <p className="text-white/80 text-sm font-light">
+                                                <p className="text-white/80 text-sm font-normal">
                                                     Our house Sommelier recommends a vintage Pinot Noir.
                                                 </p>
                                             </motion.div>
                                         ) : (
-                                            <p className="text-gray-400 text-sm font-light line-clamp-2 mb-6 opacity-80 group-hover:text-gray-300 transition-colors duration-300">
+                                            <p className="text-gray-400 text-sm font-normal line-clamp-2 mb-6 opacity-80 group-hover:text-gray-300 transition-colors duration-300">
                                                 {dish.description || 'A delightful culinary masterpiece featuring premium ingredients and authentic flavors.'}
                                                 <span className="block mt-2 text-primary text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                                                     Read More
@@ -156,7 +156,7 @@ const Home = () => {
                                                 ))}
                                             </div>
                                             <button className={`w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 ${expandedDishId === dish._id ? 'bg-primary text-secondary rotate-180' : 'bg-transparent text-white hover:bg-white hover:text-secondary hover:border-white'}`}>
-                                                {expandedDishId === dish._id ? <X size={20} /> : <span className="text-2xl font-light mb-1">+</span>}
+                                                {expandedDishId === dish._id ? <X size={20} /> : <span className="text-2xl font-normal mb-1">+</span>}
                                             </button>
                                         </div>
                                     </div>

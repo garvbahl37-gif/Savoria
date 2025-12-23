@@ -21,10 +21,10 @@ const About = () => {
                     </h2>
                     <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-10"></div>
 
-                    <p className="text-gray-300 text-xl leading-relaxed mb-6 font-light max-w-3xl mx-auto">
+                    <p className="text-gray-300 text-xl leading-relaxed mb-6 font-normal max-w-3xl mx-auto">
                         Founded in the heart of the city, <span className="text-primary font-medium">Savoria</span> brings the soul of Italian gastronomy to discerning palates. Our chef, trained in the kitchens of Milan and Rome, crafts each dish with reverence for tradition and a modern sensibility.
                     </p>
-                    <p className="text-gray-400 text-lg leading-relaxed font-light max-w-3xl mx-auto">
+                    <p className="text-gray-400 text-lg leading-relaxed font-normal max-w-3xl mx-auto">
                         Every ingredient is sourced with care—from the finest Parmigiano-Reggiano aged 36 months to hand-picked truffles from Alba. We believe in the beauty of simplicity, allowing exceptional ingredients to speak for themselves.
                     </p>
                 </motion.div>
@@ -39,7 +39,7 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        <p className="text-6xl md:text-7xl font-header font-thin text-primary mb-3">15+</p>
+                        <p className="text-6xl md:text-7xl font-header font-medium text-primary mb-3">15+</p>
                         <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-sans">Years of Excellence</p>
                     </motion.div>
                     <motion.div
@@ -47,7 +47,7 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                        <p className="text-6xl md:text-7xl font-header font-thin text-primary mb-3">100%</p>
+                        <p className="text-6xl md:text-7xl font-header font-medium text-primary mb-3">100%</p>
                         <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-sans">Italian Ingredients</p>
                     </motion.div>
                     <motion.div
@@ -55,7 +55,7 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.6 }}
                     >
-                        <p className="text-6xl md:text-7xl font-header font-thin text-primary mb-3">1</p>
+                        <p className="text-6xl md:text-7xl font-header font-medium text-primary mb-3">1</p>
                         <p className="text-gray-500 text-xs tracking-[0.25em] uppercase font-sans">Michelin Star</p>
                     </motion.div>
                 </div>

@@ -19,7 +19,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20 font-light">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20 font-normal">
                     {/* Address */}
                     <div className="space-y-6">
                         <h3 className="text-primary font-sans font-bold text-[10px] tracking-[0.25em] uppercase">Address</h3>

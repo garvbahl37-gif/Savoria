@@ -60,7 +60,7 @@ const ReservationSection = () => {
                             Book Your <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-amber-200 to-primary italic font-serif pr-4">Moment</span>
                         </h2>
-                        <p className="text-gray-400 mt-8 max-w-md text-lg leading-relaxed font-light border-l border-primary/30 pl-6">
+                        <p className="text-gray-400 mt-8 max-w-md text-lg leading-relaxed font-normal border-l border-primary/30 pl-6">
                             Whether it's a romantic dinner or a family gathering, we ensure every detail is perfect. Experience the art of hospitality.
                         </p>
                     </div>
@@ -89,7 +89,7 @@ const ReservationSection = () => {
 
                         <div className="mb-10 relative z-10">
                             <h3 className="text-4xl font-serif text-white mb-2">Secure Your Table</h3>
-                            <p className="text-gray-500 text-sm font-light">Reservations are recommended 2 days in advance.</p>
+                            <p className="text-gray-500 text-sm font-normal">Reservations are recommended 2 days in advance.</p>
                         </div>
 
                         <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
@@ -103,7 +103,7 @@ const ReservationSection = () => {
                                         type="text"
                                         required
                                         placeholder="John Doe"
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-light placeholder-gray-600"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-normal placeholder-gray-600"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -115,7 +115,7 @@ const ReservationSection = () => {
                                         type="tel"
                                         required
                                         placeholder="+1 234..."
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-light placeholder-gray-600"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-normal placeholder-gray-600"
                                     />
                                 </div>
                             </div>
@@ -129,7 +129,7 @@ const ReservationSection = () => {
                                     type="email"
                                     required
                                     placeholder="john@example.com"
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-light placeholder-gray-600"
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-normal placeholder-gray-600"
                                 />
                             </div>
 
@@ -140,7 +140,7 @@ const ReservationSection = () => {
                                         name="guests"
                                         value={formData.guests}
                                         onChange={handleChange}
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-light h-[58px] appearance-none cursor-pointer"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-normal h-[58px] appearance-none cursor-pointer"
                                     >
                                         <option value="2" className="text-black">2 People</option>
                                         <option value="3" className="text-black">3 People</option>
@@ -157,7 +157,7 @@ const ReservationSection = () => {
                                             onChange={handleChange}
                                             type="date"
                                             required
-                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-light text-sm uppercase tracking-wider"
+                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-normal text-sm uppercase tracking-wider"
                                         />
                                         <input
                                             name="time"
@@ -165,7 +165,7 @@ const ReservationSection = () => {
                                             onChange={handleChange}
                                             type="time"
                                             required
-                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-light text-sm uppercase tracking-wider"
+                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-normal text-sm uppercase tracking-wider"
                                         />
                                     </div>
                                 </div>

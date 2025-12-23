@@ -61,9 +61,9 @@ const TiltCard = ({ item }) => {
                         <span className="text-amber-200 font-serif text-2xl italic">${item.price}</span>
                     </div>
 
-                    <h3 className="text-4xl font-serif text-white group-hover:text-primary transition-colors duration-300 leading-tight mb-4">{item.title}</h3>
+                    <h3 className="text-4xl font-serif text-white group-hover:text-primary transition-colors duration-300 leading-tight mb-4 font-bold">{item.title}</h3>
 
-                    <p className="text-gray-400 text-xs font-light tracking-wide line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">
+                    <p className="text-gray-400 text-xs font-medium tracking-wide line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">
                         {item.description || "A masterfully curated dish featuring the finest ingredients, designed to transport your palate to the heart of Italy."}
                     </p>
 
@@ -136,7 +136,7 @@ const InteractiveMenu = () => {
                         transition={{ delay: 0.2 }}
                         className="hidden md:flex flex-col gap-2 max-w-sm text-right"
                     >
-                        <p className="text-gray-300 text-lg leading-relaxed font-serif italic tracking-wide font-light">"Swipe to discover our most prized creations, each crafted with passion and precision to ignite your senses."</p>
+                        <p className="text-gray-300 text-lg leading-relaxed font-serif italic tracking-wide font-medium">"Swipe to discover our most prized creations, each crafted with passion and precision to ignite your senses."</p>
                         <div className="h-[2px] w-12 bg-primary self-end mt-2"></div>
                     </motion.div>
                 </div>

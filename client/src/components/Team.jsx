@@ -20,7 +20,7 @@ const Team = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ delay: idx * 0.1 }}
                         >
-                            <h3 className="text-6xl md:text-8xl font-header font-thin text-secondary mb-4">{stat.num}</h3>
+                            <h3 className="text-6xl md:text-8xl font-header font-medium text-secondary mb-4">{stat.num}</h3>
                             <p className="text-gray-400 font-body text-xs uppercase tracking-[0.2em]">{stat.label}</p>
                         </motion.div>
                     ))}
@@ -32,12 +32,12 @@ const Team = () => {
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl font-header font-light text-secondary mb-6"
+                        className="text-5xl md:text-7xl font-header font-medium text-secondary mb-6"
                     >
                         OUR TEAM
                     </motion.h2>
                     <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8"></div>
-                    <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-light">
+                    <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-normal">
                         Meet the culinary bohemians behind Savoria's award-winning flavors. Dedicated to the art of gastronomy, our team brings passion and precision to every plate.
                     </p>
                 </div>

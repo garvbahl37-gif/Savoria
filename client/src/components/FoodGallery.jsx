@@ -77,7 +77,7 @@ const FoodGallery = () => {
                     >
                         Culinary Artistry
                     </motion.h2>
-                    <p className="text-gray-500 max-w-xl mx-auto text-lg font-light">
+                    <p className="text-gray-500 max-w-xl mx-auto text-lg font-normal">
                         A curated showcase of our chef's masterpiece creations.
                     </p>
                 </div>
