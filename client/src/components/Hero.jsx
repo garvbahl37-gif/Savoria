@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Instagram, Facebook, Twitter, Star, Clock } from 'lucide-react';
+import SavoriaBG from '../assets/savoria_bg.png';
 
 const Hero = () => {
     return (
@@ -9,11 +10,11 @@ const Hero = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="/hero-bg.png"
+                    src={SavoriaBG}
                     alt="Fine Dining Atmosphere"
                     className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40"></div> {/* Slightly lighter overlay for gold to shine */}
+                <div className="absolute inset-0 bg-black/30"></div> {/* Minimal dark overlay for text readability, no blur */}
             </div>
 
             {/* Main Content */}
