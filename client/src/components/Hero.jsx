@@ -3,7 +3,16 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Instagram, Facebook, Twitter, Star, Clock } from 'lucide-react';
 import SavoriaBG from '../assets/savoria_bg.png';
 
+import { Link } from 'react-router-dom';
+
 const Hero = () => {
+    const scrollToReservation = () => {
+        const element = document.getElementById('reservation');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
 
@@ -43,12 +52,17 @@ const Hero = () => {
                     transition={{ duration: 1, delay: 0.6 }}
                     className="flex flex-col sm:flex-row gap-6"
                 >
-                    <button className="px-8 py-3 bg-primary text-secondary font-bold tracking-widest uppercase text-sm border border-primary hover:bg-transparent hover:text-primary transition-all duration-300">
+                    <button
+                        onClick={scrollToReservation}
+                        className="px-8 py-3 bg-primary text-secondary font-bold tracking-widest uppercase text-sm border border-primary hover:bg-transparent hover:text-primary transition-all duration-300"
+                    >
                         Reserve a Table
                     </button>
-                    <button className="px-8 py-3 bg-transparent text-white font-bold tracking-widest uppercase text-sm border border-white/30 hover:bg-white hover:text-secondary transition-all duration-300">
-                        View Menu
-                    </button>
+                    <Link to="/menu">
+                        <button className="px-8 py-3 bg-transparent text-white font-bold tracking-widest uppercase text-sm border border-white/30 hover:bg-white hover:text-secondary transition-all duration-300">
+                            View Menu
+                        </button>
+                    </Link>
                 </motion.div>
 
             </div>
