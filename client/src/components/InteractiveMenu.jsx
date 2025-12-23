@@ -8,8 +8,8 @@ const TiltCard = ({ item }) => {
     const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
     const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
 
-    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["10deg", "-10deg"]);
-    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-10deg", "10deg"]);
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["7deg", "-7deg"]);
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-7deg", "7deg"]);
 
     const handleMouseMove = (e) => {
         const rect = e.target.getBoundingClientRect();
@@ -37,48 +37,54 @@ const TiltCard = ({ item }) => {
                 rotateY,
                 transformStyle: "preserve-3d",
             }}
-            className="relative w-[320px] h-[480px] flex-shrink-0 rounded-[2rem] bg-[#080808] shadow-2xl cursor-none overflow-hidden group border border-white/5 hover:border-primary/40 transition-all duration-500"
+            className="relative w-[340px] h-[520px] flex-shrink-0 rounded-[1.5rem] bg-[#050505] shadow-2xl cursor-pointer overflow-hidden group border border-white/5 hover:border-primary/50 transition-all duration-500"
         >
-            {/* Image Layer - Pops out in 3D */}
+            {/* Full Height Image Layer */}
             <motion.div
-                style={{ transform: "translateZ(30px)" }}
-                className="absolute top-0 left-0 w-full h-[55%]"
+                style={{ transform: "translateZ(20px)" }}
+                className="absolute inset-0 w-full h-full"
             >
                 <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale-[30%] group-hover:grayscale-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90"></div>
+                {/* Premium Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
             </motion.div>
 
             {/* Content Layer */}
-            <div className="absolute bottom-0 left-0 w-full h-[45%] p-8 flex flex-col justify-between z-10">
-                <div style={{ transform: "translateZ(20px)" }}>
-                    <span className="text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-3 block">{item.category}</span>
-                    <h3 className="text-3xl font-serif text-white hover:text-primary transition-colors duration-300 leading-none">{item.title}</h3>
-                </div>
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
+                <div style={{ transform: "translateZ(40px)" }}>
+                    <div className="flex justify-between items-start mb-4">
+                        <span className="text-primary/90 text-[10px] font-bold uppercase tracking-[0.4em] border-b border-primary/30 pb-1">{item.category}</span>
+                        <span className="text-amber-200 font-serif text-2xl italic">${item.price}</span>
+                    </div>
 
-                <div className="flex justify-between items-end border-t border-white/5 pt-6 mt-2">
-                    <span className="text-white font-serif text-2xl italic flex items-center gap-1">
-                        <span className="text-xs text-primary not-italic font-bold">$</span>{item.price}
-                    </span>
-                    <button className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:text-black hover:border-primary hover:scale-110 transition-all duration-300 group-hover:translate-x-1">
-                        ➜
-                    </button>
+                    <h3 className="text-4xl font-serif text-white group-hover:text-primary transition-colors duration-300 leading-tight mb-4">{item.title}</h3>
+
+                    <p className="text-gray-400 text-xs font-light tracking-wide line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">
+                        {item.description || "A masterfully curated dish featuring the finest ingredients, designed to transport your palate to the heart of Italy."}
+                    </p>
+
+                    {/* View Details Button */}
+                    <div className="mt-6 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 delay-200">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">View Details</span>
+                        <div className="w-8 h-[1px] bg-primary"></div>
+                    </div>
                 </div>
             </div>
 
             {/* Shine Effect */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
         </motion.div>
     );
 };
 
 const InteractiveMenu = () => {
     const dishes = [
-        { id: 1, title: 'Truffle Tagliatelle', price: '28', category: 'Primi', image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
-        { id: 2, title: 'Osso Buco', price: '38', category: 'Secondi', image: 'https://loremflickr.com/600/800/ossobuco?lock=10' },
+        { id: 1, title: 'Truffle Tagliatelle', price: '28', category: 'Primi', image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=1000&auto=format&fit=crop' },
+        { id: 2, title: 'Osso Buco', price: '38', category: 'Secondi', image: 'https://images.unsplash.com/photo-1544510808-91bcbee1df55?q=80&w=1000&auto=format&fit=crop' },
         { id: 3, title: 'Tiramisù Classico', price: '14', category: 'Dolci', image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
         { id: 4, title: 'Risotto ai Funghi', price: '26', category: 'Primi', image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
         { id: 5, title: 'Negroni Sbagliato', price: '16', category: 'Aperitivo', image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
@@ -155,5 +161,4 @@ const InteractiveMenu = () => {
         </section>
     );
 };
-
 export default InteractiveMenu;
