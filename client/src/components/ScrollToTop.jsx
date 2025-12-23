@@ -5,6 +5,11 @@ const ScrollToTop = () => {
     const { pathname, hash } = useLocation();
 
     useEffect(() => {
+        // Prevent browser from restoring scroll position
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
+
         if (!hash) {
             window.scrollTo(0, 0);
         } else {
@@ -13,7 +18,6 @@ const ScrollToTop = () => {
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
             } else {
-                // Retry for dynamic content
                 setTimeout(() => {
                     const el = document.getElementById(id);
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
