@@ -9,11 +9,11 @@ const Hero = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874&auto=format&fit=crop"
+                    src="/hero-bg.png"
                     alt="Fine Dining Atmosphere"
                     className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/50"></div> {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/40"></div> {/* Slightly lighter overlay for gold to shine */}
             </div>
 
             {/* Main Content */}

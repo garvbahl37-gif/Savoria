@@ -62,9 +62,9 @@ const Navbar = () => {
             />
 
             <nav
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
-                    ? 'bg-[#050505]/80 backdrop-blur-xl py-4 shadow-2xl'
-                    : 'bg-transparent py-6'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${scrolled
+                    ? 'bg-[#050505]/90 backdrop-blur-md md:backdrop-blur-xl py-3 md:py-4 shadow-2xl'
+                    : 'bg-transparent py-4 md:py-6'
                     }`}
             >
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative flex justify-center items-center h-full">
@@ -102,7 +102,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Tablet/Mobile Menu Toggle - Absolute Right */}
-                    <div className="xl:hidden flex items-center gap-4 relative z-50 absolute right-6 md:right-12">
+                    <div className="xl:hidden flex items-center justify-end z-50 absolute right-4 md:right-8">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-primary hover:text-white transition-colors p-2"
@@ -118,8 +118,8 @@ const Navbar = () => {
                         initial={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
                         animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
                         exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="fixed inset-0 z-[60] bg-black h-screen w-screen flex flex-col justify-center items-center opacity-100"
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="fixed inset-0 z-[60] bg-black h-screen w-screen flex flex-col justify-center items-center opacity-100 will-change-transform"
                     >
                         {/* Close Button - Internal */}
                         <button
