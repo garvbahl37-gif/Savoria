@@ -118,14 +118,22 @@ const Navbar = () => {
                         initial={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
                         animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
                         exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
-                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col justify-center items-center"
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="fixed inset-0 z-[60] bg-[#050505] flex flex-col justify-center items-center"
                     >
-                        {/* Decorative background elements */}
-                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
-                        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none opacity-30"></div>
+                        {/* Close Button - Internal */}
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-6 right-6 text-primary hover:text-white transition-colors p-2 z-50"
+                        >
+                            <X size={32} strokeWidth={1} />
+                        </button>
 
-                        <div className="flex flex-col items-center space-y-8 relative z-10 w-full px-6 text-center">
+                        {/* Decorative background elements */}
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+                        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+                        <div className="flex flex-col items-center space-y-6 relative z-10 w-full px-6 text-center max-h-screen overflow-y-auto py-20">
                             {navLinks.map((item, idx) => (
                                 item.href.startsWith('/') ?
                                     <Link
@@ -134,10 +142,10 @@ const Navbar = () => {
                                         onClick={() => setIsOpen(false)}
                                     >
                                         <motion.span
-                                            initial={{ opacity: 0, y: 40 }}
+                                            initial={{ opacity: 0, y: 30 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.1 + idx * 0.1, duration: 0.8, ease: "easeOut" }}
-                                            className="block text-4xl md:text-6xl font-serif font-medium text-white/50 hover:text-primary transition-all duration-500 tracking-tight hover:scale-105"
+                                            transition={{ delay: 0.1 + idx * 0.05, duration: 0.5 }}
+                                            className="block text-3xl font-serif font-medium text-white/50 hover:text-primary transition-all duration-300 tracking-tight"
                                         >
                                             {item.name}
                                         </motion.span>
@@ -148,10 +156,10 @@ const Navbar = () => {
                                         onClick={() => scrollToSection(item.href)}
                                     >
                                         <motion.span
-                                            initial={{ opacity: 0, y: 40 }}
+                                            initial={{ opacity: 0, y: 30 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.1 + idx * 0.1, duration: 0.8, ease: "easeOut" }}
-                                            className="block text-4xl md:text-6xl font-serif font-medium text-white/50 hover:text-primary transition-all duration-500 tracking-tight hover:scale-105"
+                                            transition={{ delay: 0.1 + idx * 0.05, duration: 0.5 }}
+                                            className="block text-3xl font-serif font-medium text-white/50 hover:text-primary transition-all duration-300 tracking-tight"
                                         >
                                             {item.name}
                                         </motion.span>
@@ -159,14 +167,14 @@ const Navbar = () => {
                             ))}
 
                             <motion.div
-                                initial={{ opacity: 0, y: 40 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.8 }}
-                                className="pt-12"
+                                transition={{ delay: 0.5 }}
+                                className="pt-8"
                             >
                                 <button
                                     onClick={() => scrollToSection('#reservation')}
-                                    className="px-12 py-5 bg-primary text-black font-header font-bold text-sm tracking-[0.3em] uppercase rounded-lg hover:bg-white transition-all shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-105"
+                                    className="px-10 py-4 bg-primary text-black font-header font-bold text-sm tracking-[0.3em] uppercase rounded-none hover:bg-white transition-all hover:scale-105"
                                 >
                                     Reserve A Table
                                 </button>
