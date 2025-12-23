@@ -99,7 +99,7 @@ const Menu = () => {
 
                                 <div className="text-center">
                                     <span className="text-primary font-serif font-bold text-xs tracking-widest uppercase mb-2 block">{item.category}</span>
-                                    <h3 className="text-2xl font-serif text-white mb-2">{item.name}</h3>
+                                    <h3 className="text-2xl font-serif text-white mb-2 font-bold">{item.name}</h3>
 
                                     {/* Expandable Content */}
                                     <motion.div
@@ -107,19 +107,19 @@ const Menu = () => {
                                         animate={{ height: expandedDishId === item._id ? 'auto' : 0, opacity: expandedDishId === item._id ? 1 : 0 }}
                                         className="overflow-hidden"
                                     >
-                                        <p className="text-gray-300 text-sm leading-relaxed mb-4 max-w-xs mx-auto italic">
+                                        <p className="text-gray-300 text-sm leading-relaxed mb-4 max-w-xs mx-auto italic font-medium">
                                             "{item.specialty || item.description || "A chef's special creation."}"
                                         </p>
                                     </motion.div>
 
                                     {/* 1-Liner Teaser (Visual when collapsed) */}
                                     {expandedDishId !== item._id && (
-                                        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-1 max-w-xs mx-auto">
+                                        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-1 max-w-xs mx-auto font-medium">
                                             {item.description}
                                         </p>
                                     )}
 
-                                    <span className="text-xl font-serif text-primary italic">${item.price}</span>
+                                    <span className="text-xl font-serif text-primary italic font-bold">${item.price}</span>
                                 </div>
                             </motion.div>
                         ))}

@@ -114,13 +114,13 @@ const Home = () => {
                                     {/* Luxury Price Tag */}
                                     <div className="absolute top-6 right-6 z-20">
                                         <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500">
-                                            <span className="font-header text-xl text-primary font-medium italic">${dish.price || '24'}</span>
+                                            <span className="font-header text-xl text-primary font-bold italic">${dish.price || '24'}</span>
                                         </div>
                                     </div>
 
                                     {/* Content Area */}
                                     <div className={`absolute bottom-0 left-0 w-full p-8 z-20 transition-all duration-700 ${expandedDishId === dish._id ? 'translate-y-0' : 'translate-y-2 group-hover:translate-y-0'}`}>
-                                        <h3 className="text-4xl font-header font-medium text-white mb-3 leading-none tracking-wide">
+                                        <h3 className="text-4xl font-header font-bold text-white mb-3 leading-none tracking-wide">
                                             {dish.name}
                                         </h3>
 
@@ -132,7 +132,7 @@ const Home = () => {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 className="mt-4"
                                             >
-                                                <p className="text-gray-300 text-base leading-relaxed mb-6 font-medium italic border-l-2 border-primary/50 pl-4">
+                                                <p className="text-gray-300 text-base leading-relaxed mb-6 font-semibold italic border-l-2 border-primary/50 pl-4">
                                                     "{dish.specialty || "A signature creation featuring locally sourced ingredients and a balance of traditional flavors."}"
                                                 </p>
                                                 <p className="text-primary/80 text-xs uppercase tracking-widest mb-2 font-bold">Perfect Pairing</p>
@@ -141,7 +141,7 @@ const Home = () => {
                                                 </p>
                                             </motion.div>
                                         ) : (
-                                            <p className="text-gray-400 text-sm font-normal line-clamp-2 mb-6 opacity-80 group-hover:text-gray-300 transition-colors duration-300">
+                                            <p className="text-gray-400 text-sm font-medium line-clamp-2 mb-6 opacity-80 group-hover:text-gray-300 transition-colors duration-300">
                                                 {dish.description || 'A delightful culinary masterpiece featuring premium ingredients and authentic flavors.'}
                                                 <span className="block mt-2 text-primary text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                                                     Read More
