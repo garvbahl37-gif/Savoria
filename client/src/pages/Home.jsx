@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import InteractiveMenu from '../components/InteractiveMenu';
-import { BadgeCheck, ChefHat, Clock } from 'lucide-react';
+import { BadgeCheck, ChefHat, Clock, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FoodGallery from '../components/FoodGallery';
 import Testimonials from '../components/Testimonials'; // Kept if needed, or remove if not in design.
@@ -16,6 +16,7 @@ import { API_URL } from '../config';
 const Home = () => {
     const [featuredDishes, setFeaturedDishes] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [expandedDishId, setExpandedDishId] = useState(null);
 
     useEffect(() => {
         const fetchFeatures = async () => {
@@ -49,30 +50,31 @@ const Home = () => {
                 <div className="absolute right-0 bottom-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[80px] pointer-events-none"></div>
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-20">
-                        <div>
+                    <div className="flex flex-col md:flex-row items-end justify-between mb-24">
+                        <div className="md:max-w-2xl">
                             <motion.span
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                className="text-primary font-bold tracking-[0.2em] uppercase text-sm block mb-3"
+                                className="text-primary font-sans font-bold tracking-[0.3em] uppercase text-xs block mb-4"
                             >
                                 Fresh From Kitchen
                             </motion.span>
                             <motion.h2
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="text-6xl md:text-7xl font-header font-medium text-secondary"
+                                className="text-6xl md:text-8xl font-header font-light text-secondary mb-6 leading-tight"
                             >
-                                Crowd <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-secondary/60 italic font-serif">Favorites</span>
+                                Crowd <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-600 italic font-serif">Favorites</span>
                             </motion.h2>
+                            <div className="w-24 h-0.5 bg-gradient-to-r from-primary to-transparent mb-6"></div>
                         </div>
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}
-                            className="hidden md:block max-w-xs text-right text-gray-500 text-sm leading-relaxed"
+                            className="hidden md:block max-w-sm text-right text-gray-500 text-lg font-light leading-relaxed"
                         >
-                            <p>Hand-picked daily specials that define our culinary identity. Tasted and loved by thousands.</p>
+                            <p>Hand-picked daily specials that define our culinary identity. Tasted and loved by thousands for their authentic taste.</p>
                         </motion.div>
                     </div>
 
@@ -89,42 +91,72 @@ const Home = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ delay: idx * 0.1, duration: 0.6 }}
                                     viewport={{ once: true }}
-                                    className="group relative h-[500px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
+                                    onClick={() => setExpandedDishId(expandedDishId === dish._id ? null : dish._id)}
+                                    className={`group relative rounded-[2rem] overflow-hidden cursor-pointer shadow-2xl transition-all duration-700 ease-out border border-white/10 hover:border-primary/30 ${expandedDishId === dish._id ? 'h-[600px] scale-[1.02]' : 'h-[500px] hover:-translate-y-2'}`}
                                 >
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
                                     <img
                                         src={dish.image}
                                         alt={dish.name}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
+                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                     />
 
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                                    {/* Gradient Overlay - Rich & Deep but Clearer Image */}
+                                    <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500 ${expandedDishId === dish._id ? 'opacity-90' : 'opacity-60 group-hover:opacity-80'}`}></div>
 
-                                    {/* Floating Category Badge */}
-                                    <div className="absolute top-6 left-6">
-                                        <span className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                                    {/* Premium Category Badge */}
+                                    <div className="absolute top-6 left-6 z-20">
+                                        <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.25em] shadow-lg group-hover:bg-primary group-hover:text-secondary group-hover:border-primary transition-all duration-500">
                                             {dish.category}
                                         </span>
                                     </div>
 
-                                    {/* Price Tag */}
-                                    <div className="absolute top-6 right-6 bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shadow-lg transform group-hover:scale-110 transition-transform">
-                                        ${dish.price || '24'}
+                                    {/* Luxury Price Tag */}
+                                    <div className="absolute top-6 right-6 z-20">
+                                        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-500">
+                                            <span className="font-header text-xl text-primary font-light italic">${dish.price || '24'}</span>
+                                        </div>
                                     </div>
 
-                                    {/* Content - Slide Up on Hover */}
-                                    <div className="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        <h3 className="text-3xl font-header font-bold text-white mb-2 leading-tight">{dish.name}</h3>
-                                        <p className="text-white/80 text-sm line-clamp-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                            {dish.description || 'A delightful culinary masterpiece featuring premium ingredients and authentic flavors.'}
-                                        </p>
+                                    {/* Content Area */}
+                                    <div className={`absolute bottom-0 left-0 w-full p-8 z-20 transition-all duration-700 ${expandedDishId === dish._id ? 'translate-y-0' : 'translate-y-2 group-hover:translate-y-0'}`}>
+                                        <h3 className="text-4xl font-header font-light text-white mb-3 leading-none tracking-wide">
+                                            {dish.name}
+                                        </h3>
 
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex text-amber-400 gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                                                {[1, 2, 3, 4, 5].map(i => <ChefHat key={i} size={16} fill="currentColor" />)}
+                                        <div className={`w-12 h-0.5 bg-primary mb-4 transition-all duration-500 ${expandedDishId === dish._id ? 'w-24' : 'group-hover:w-20'}`}></div>
+
+                                        {expandedDishId === dish._id ? (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className="mt-4"
+                                            >
+                                                <p className="text-gray-300 text-base leading-relaxed mb-6 font-light italic border-l-2 border-primary/50 pl-4">
+                                                    "{dish.specialty || "A signature creation featuring locally sourced ingredients and a balance of traditional flavors."}"
+                                                </p>
+                                                <p className="text-primary/80 text-xs uppercase tracking-widest mb-2 font-bold">Perfect Pairing</p>
+                                                <p className="text-white/80 text-sm font-light">
+                                                    Our house Sommelier recommends a vintage Pinot Noir.
+                                                </p>
+                                            </motion.div>
+                                        ) : (
+                                            <p className="text-gray-400 text-sm font-light line-clamp-2 mb-6 opacity-80 group-hover:text-gray-300 transition-colors duration-300">
+                                                {dish.description || 'A delightful culinary masterpiece featuring premium ingredients and authentic flavors.'}
+                                                <span className="block mt-2 text-primary text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                                    Read More
+                                                </span>
+                                            </p>
+                                        )}
+
+                                        <div className="flex items-center justify-between mt-6 border-t border-white/10 pt-6">
+                                            <div className="flex gap-1">
+                                                {[1, 2, 3, 4, 5].map(i => (
+                                                    <ChefHat key={i} size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: `${i * 50}ms` }} />
+                                                ))}
                                             </div>
-                                            <button className="w-12 h-12 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                                                ➜
+                                            <button className={`w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 ${expandedDishId === dish._id ? 'bg-primary text-secondary rotate-180' : 'bg-transparent text-white hover:bg-white hover:text-secondary hover:border-white'}`}>
+                                                {expandedDishId === dish._id ? <X size={20} /> : <span className="text-2xl font-light mb-1">+</span>}
                                             </button>
                                         </div>
                                     </div>

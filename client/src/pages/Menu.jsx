@@ -11,9 +11,13 @@ const Menu = () => {
     const [filter, setFilter] = useState('All');
     const [categories, setCategories] = useState(['All']);
 
+    const [expandedDishId, setExpandedDishId] = useState(null);
+
     useEffect(() => {
         fetchMenuItems();
     }, []);
+
+    // ... (fetchMenuItems remains same) ...
 
     const fetchMenuItems = async () => {
         try {
@@ -78,20 +82,43 @@ const Menu = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0 }}
                                 key={item._id}
-                                className="group"
+                                className={`group cursor-pointer relative transition-all duration-500 ease-out rounded-xl ${expandedDishId === item._id ? 'scale-[1.02] z-20 ring-1 ring-primary/50 shadow-[0_0_50px_rgba(212,175,55,0.15)] bg-white/5' : 'hover:bg-white/5 hover:scale-[1.01]'}`}
+                                onClick={() => setExpandedDishId(expandedDishId === item._id ? null : item._id)}
                             >
-                                <div className="w-full aspect-[4/3] overflow-hidden mb-6 bg-gray-900">
+                                <div className="w-full aspect-[4/3] overflow-hidden mb-6 bg-gray-900 relative">
                                     <img
                                         src={item.image || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"}
                                         alt={item.name}
                                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                                     />
+                                    {/* Overlay for "Click to view" hint */}
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <span className="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded-full backdrop-blur-sm"> View Details </span>
+                                    </div>
                                 </div>
 
                                 <div className="text-center">
                                     <span className="text-primary font-serif font-bold text-xs tracking-widest uppercase mb-2 block">{item.category}</span>
                                     <h3 className="text-2xl font-serif text-white mb-2">{item.name}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2 max-w-xs mx-auto">{item.description}</p>
+
+                                    {/* Expandable Content */}
+                                    <motion.div
+                                        initial={false}
+                                        animate={{ height: expandedDishId === item._id ? 'auto' : 0, opacity: expandedDishId === item._id ? 1 : 0 }}
+                                        className="overflow-hidden"
+                                    >
+                                        <p className="text-gray-300 text-sm leading-relaxed mb-4 max-w-xs mx-auto italic">
+                                            "{item.specialty || item.description || "A chef's special creation."}"
+                                        </p>
+                                    </motion.div>
+
+                                    {/* 1-Liner Teaser (Visual when collapsed) */}
+                                    {expandedDishId !== item._id && (
+                                        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-1 max-w-xs mx-auto">
+                                            {item.description}
+                                        </p>
+                                    )}
+
                                     <span className="text-xl font-serif text-primary italic">${item.price}</span>
                                 </div>
                             </motion.div>

@@ -8,8 +8,8 @@ const TiltCard = ({ item }) => {
     const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
     const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
 
-    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["15deg", "-15deg"]);
-    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-15deg", "15deg"]);
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["10deg", "-10deg"]);
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-10deg", "10deg"]);
 
     const handleMouseMove = (e) => {
         const rect = e.target.getBoundingClientRect();
@@ -37,42 +37,40 @@ const TiltCard = ({ item }) => {
                 rotateY,
                 transformStyle: "preserve-3d",
             }}
-            className="relative w-80 h-[450px] flex-shrink-0 rounded-3xl bg-white/5 backdrop-blur-md shadow-2xl cursor-none overflow-hidden group border border-white/10 hover:border-primary/30 transition-all duration-300"
+            className="relative w-[320px] h-[480px] flex-shrink-0 rounded-[2rem] bg-[#080808] shadow-2xl cursor-none overflow-hidden group border border-white/5 hover:border-primary/40 transition-all duration-500"
         >
             {/* Image Layer - Pops out in 3D */}
             <motion.div
-                style={{ transform: "translateZ(50px)" }}
-                className="absolute top-0 left-0 w-full h-[60%]"
+                style={{ transform: "translateZ(30px)" }}
+                className="absolute top-0 left-0 w-full h-[55%]"
             >
                 <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover rounded-t-3xl group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90"></div>
             </motion.div>
 
             {/* Content Layer */}
-            <div className="absolute bottom-0 left-0 w-full h-[45%] bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 flex flex-col justify-end z-10 space-y-2">
-                <div style={{ transform: "translateZ(30px)" }}>
-                    <span className="text-primary text-xs font-bold uppercase tracking-[0.25em]">{item.category}</span>
-                    <h3 className="text-2xl font-serif text-white mt-1 leading-tight">{item.title}</h3>
+            <div className="absolute bottom-0 left-0 w-full h-[45%] p-8 flex flex-col justify-between z-10">
+                <div style={{ transform: "translateZ(20px)" }}>
+                    <span className="text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-3 block">{item.category}</span>
+                    <h3 className="text-3xl font-serif text-white hover:text-primary transition-colors duration-300 leading-none">{item.title}</h3>
                 </div>
 
-                <div className="flex justify-between items-center pt-2 border-t border-white/10">
-                    <span className="text-white/90 font-serif text-xl italic">${item.price}</span>
-                    <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:text-black hover:border-primary transition-all duration-300">
+                <div className="flex justify-between items-end border-t border-white/5 pt-6 mt-2">
+                    <span className="text-white font-serif text-2xl italic flex items-center gap-1">
+                        <span className="text-xs text-primary not-italic font-bold">$</span>{item.price}
+                    </span>
+                    <button className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:text-black hover:border-primary hover:scale-110 transition-all duration-300 group-hover:translate-x-1">
                         ➜
                     </button>
                 </div>
             </div>
 
-            {/* Floating Ingredients (Mock explanation) */}
-            <motion.div
-                style={{ transform: "translateZ(80px)" }}
-                className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-secondary opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-                Chef's Choice
-            </motion.div>
+            {/* Shine Effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         </motion.div>
     );
 };
@@ -80,14 +78,14 @@ const TiltCard = ({ item }) => {
 const InteractiveMenu = () => {
     const dishes = [
         { id: 1, title: 'Truffle Tagliatelle', price: '28', category: 'Primi', image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
-        { id: 2, title: 'Osso Buco alla Milanese', price: '38', category: 'Secondi', image: 'https://loremflickr.com/600/800/ossobuco?lock=10' },
+        { id: 2, title: 'Osso Buco', price: '38', category: 'Secondi', image: 'https://loremflickr.com/600/800/ossobuco?lock=10' },
         { id: 3, title: 'Tiramisù Classico', price: '14', category: 'Dolci', image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
         { id: 4, title: 'Risotto ai Funghi', price: '26', category: 'Primi', image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
         { id: 5, title: 'Negroni Sbagliato', price: '16', category: 'Aperitivo', image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80' },
     ];
 
     return (
-        <section className="py-32 bg-secondary overflow-hidden relative">
+        <section id="chef-table" className="pt-32 pb-0 bg-secondary overflow-hidden relative">
             <style jsx>{`
                 .hide-scrollbar::-webkit-scrollbar {
                     display: none;
@@ -132,7 +130,7 @@ const InteractiveMenu = () => {
                         transition={{ delay: 0.2 }}
                         className="hidden md:flex flex-col gap-2 max-w-sm text-right"
                     >
-                        <p className="text-white/60 text-sm leading-relaxed font-light">Swipe to discover our most prized creations, each crafted with passion and precision to ignite your senses.</p>
+                        <p className="text-gray-300 text-lg leading-relaxed font-serif italic tracking-wide font-light">"Swipe to discover our most prized creations, each crafted with passion and precision to ignite your senses."</p>
                         <div className="h-[2px] w-12 bg-primary self-end mt-2"></div>
                     </motion.div>
                 </div>

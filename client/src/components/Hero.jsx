@@ -9,7 +9,7 @@ const Hero = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874&auto=format&fit=crop"
                     alt="Fine Dining Atmosphere"
                     className="w-full h-full object-cover"
                 />
@@ -24,14 +24,14 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.2 }}
                 >
-                    <span className="block text-primary text-sm md:text-base font-bold tracking-[0.3em] uppercase mb-4">
+                    <span className="block text-primary text-sm md:text-base font-bold tracking-[0.3em] uppercase mb-3">
                         Fine Italian Cuisine
                     </span>
-                    <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
+                    <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-4 leading-tight">
                         Savoria
                     </h1>
-                    <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-                    <p className="font-sans text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+                    <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                    <p className="font-sans text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
                         An exquisite journey through the authentic flavors of Italy, where tradition meets contemporary elegance.
                     </p>
                 </motion.div>

@@ -15,8 +15,8 @@ export default {
                 cream: "#F4F1DE", // Keeping cream as a utility just in case
             },
             fontFamily: {
-                serif: ["'Playfair Display'", "serif"],
-                sans: ["'Lato'", "sans-serif"],
+                serif: ["'Italiana'", "serif"],
+                sans: ["'Montserrat'", "sans-serif"],
             },
         },
     },

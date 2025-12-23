@@ -30,6 +30,9 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', href: '#home' },
         { name: 'About', href: '#about' },
+        { name: "Chef's Table", href: '#chef-table' },
+        { name: 'Popular Dishes', href: '#popular' },
+        { name: 'Team', href: '#team' },
         { name: 'Menu', href: '/menu' },
         { name: 'Reservations', href: '#reservation' },
         { name: 'Contact', href: '#contact' }
@@ -60,85 +63,114 @@ const Navbar = () => {
 
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
-                    ? 'bg-secondary/95 backdrop-blur-md py-4 shadow-lg border-b border-white/5'
+                    ? 'bg-[#050505]/80 backdrop-blur-xl py-4 shadow-2xl border-b border-white/5'
                     : 'bg-transparent py-6'
                     }`}
             >
-                <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative flex justify-center items-center h-full">
 
-                    {/* Logo */}
-                    <Link to="/" className="group">
-                        <span className="font-serif text-2xl md:text-3xl text-primary tracking-wide group-hover:text-white transition-colors">
+                    {/* Logo - Absolute Left */}
+                    <Link to="/" className="group absolute left-6 md:left-12 z-50">
+                        <span className="font-serif italic text-3xl md:text-4xl text-primary tracking-tighter group-hover:text-amber-200 transition-colors duration-500">
                             Savoria
                         </span>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-12">
+                    {/* Desktop Navigation - Centered */}
+                    <div className="hidden xl:flex items-center gap-8 2xl:gap-12">
                         {navLinks.map((item) => (
                             item.href.startsWith('/') ?
-                                <Link key={item.name} to={item.href} className="text-xs font-sans font-bold tracking-[0.2em] text-accent/80 hover:text-primary uppercase transition-colors">
+                                <Link key={item.name} to={item.href} className="text-[11px] font-bold tracking-[0.25em] text-white/80 hover:text-primary uppercase transition-all duration-300 hover:tracking-[0.3em]">
                                     {item.name}
                                 </Link>
                                 :
                                 <button
                                     key={item.name}
                                     onClick={() => scrollToSection(item.href)}
-                                    className="text-xs font-sans font-bold tracking-[0.2em] text-accent/80 hover:text-primary uppercase transition-colors"
+                                    className="text-[11px] font-bold tracking-[0.25em] text-white/80 hover:text-primary uppercase transition-all duration-300 hover:tracking-[0.3em]"
                                 >
                                     {item.name}
                                 </button>
                         ))}
 
-
-
-                        <Link
-                            to="/#reservation"
+                        <button
                             onClick={() => scrollToSection('#reservation')}
-                            className="px-6 py-2 border border-primary text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary hover:text-secondary transition-all"
+                            className="px-8 py-3 border border-primary text-primary text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-primary hover:text-black transition-all duration-500 ml-4 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
                         >
                             Reserve
-                        </Link>
+                        </button>
                     </div>
 
-                    {/* Mobile Menu Toggle */}
-                    <div className="md:hidden flex items-center gap-4">
+                    {/* Tablet/Mobile Menu Toggle - Absolute Right */}
+                    <div className="xl:hidden flex items-center gap-4 relative z-50 absolute right-6 md:right-12">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-primary hover:text-accent transition-colors"
+                            className="text-primary hover:text-white transition-colors p-2"
                         >
-                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isOpen ? <X size={32} strokeWidth={1} /> : <Menu size={32} strokeWidth={1} />}
                         </button>
                     </div>
                 </div>
 
-                {/* Mobile Menu Overlay */}
+                {/* Mobile/Tablet Menu Overlay */}
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="fixed inset-0 top-[70px] z-40 bg-secondary/95 backdrop-blur-xl border-t border-white/10"
+                        initial={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
+                        animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
+                        exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
+                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                        className="fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col justify-center items-center"
                     >
-                        <div className="flex flex-col items-center justify-center h-full space-y-8">
-                            {navLinks.map((item) => (
+                        {/* Decorative background elements */}
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
+                        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none opacity-30"></div>
+
+                        <div className="flex flex-col items-center space-y-8 relative z-10 w-full px-6 text-center">
+                            {navLinks.map((item, idx) => (
                                 item.href.startsWith('/') ?
                                     <Link
                                         key={item.name}
                                         to={item.href}
                                         onClick={() => setIsOpen(false)}
-                                        className="text-2xl font-serif text-accent hover:text-primary transition-colors"
                                     >
-                                        {item.name}
+                                        <motion.span
+                                            initial={{ opacity: 0, y: 40 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.1 + idx * 0.1, duration: 0.8, ease: "easeOut" }}
+                                            className="block text-4xl md:text-6xl font-serif font-medium text-white/50 hover:text-primary transition-all duration-500 tracking-tight hover:scale-105"
+                                        >
+                                            {item.name}
+                                        </motion.span>
                                     </Link>
                                     :
                                     <button
                                         key={item.name}
                                         onClick={() => scrollToSection(item.href)}
-                                        className="text-2xl font-serif text-accent hover:text-primary transition-colors"
                                     >
-                                        {item.name}
+                                        <motion.span
+                                            initial={{ opacity: 0, y: 40 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.1 + idx * 0.1, duration: 0.8, ease: "easeOut" }}
+                                            className="block text-4xl md:text-6xl font-serif font-medium text-white/50 hover:text-primary transition-all duration-500 tracking-tight hover:scale-105"
+                                        >
+                                            {item.name}
+                                        </motion.span>
                                     </button>
                             ))}
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.8 }}
+                                className="pt-12"
+                            >
+                                <button
+                                    onClick={() => scrollToSection('#reservation')}
+                                    className="px-12 py-5 bg-primary text-black font-header font-bold text-sm tracking-[0.3em] uppercase rounded-lg hover:bg-white transition-all shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-105"
+                                >
+                                    Reserve A Table
+                                </button>
+                            </motion.div>
                         </div>
                     </motion.div>
                 )}
