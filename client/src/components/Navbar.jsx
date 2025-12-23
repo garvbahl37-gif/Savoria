@@ -119,7 +119,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
                         exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="fixed inset-0 z-[60] bg-[#050505] flex flex-col justify-center items-center"
+                        className="fixed inset-0 z-[60] bg-black h-screen w-screen flex flex-col justify-center items-center opacity-100"
                     >
                         {/* Close Button - Internal */}
                         <button
