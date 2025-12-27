@@ -37,7 +37,7 @@ const TiltCard = ({ item }) => {
                 rotateY,
                 transformStyle: "preserve-3d",
             }}
-            className="relative w-[340px] h-[520px] flex-shrink-0 rounded-[1.5rem] bg-[#050505] shadow-2xl cursor-pointer overflow-hidden group border border-white/5 hover:border-primary/50 transition-all duration-500"
+            className="relative w-[300px] md:w-[340px] h-[460px] md:h-[520px] flex-shrink-0 rounded-[1.5rem] bg-[#050505] shadow-2xl cursor-pointer overflow-hidden group border border-white/5 hover:border-primary/50 transition-all duration-500"
         >
             {/* Full Height Image Layer */}
             <motion.div
