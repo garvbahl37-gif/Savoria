@@ -112,7 +112,7 @@ const InteractiveMenu = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6 border-b border-white/5 pb-8">
+                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6 border-b border-white/5 pb-8">
                     <div>
                         <motion.span
                             initial={{ opacity: 0, y: 20 }}
