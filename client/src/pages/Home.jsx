@@ -62,7 +62,7 @@ const Home = () => {
                             <motion.h2
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="text-6xl md:text-8xl font-display font-medium text-secondary mb-6 leading-tight italic"
+                                className="text-6xl md:text-8xl font-medium text-secondary mb-6 leading-tight italic"
                             >
                                 Crowd <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-600 font-bold">Favorites</span>
                             </motion.h2>
