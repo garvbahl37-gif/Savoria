@@ -64,7 +64,7 @@ const Home = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 className="text-6xl md:text-8xl font-medium text-secondary mb-6 leading-tight italic"
                             >
-                                Crowd <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-600 font-bold">Favorites</span>
+                                Crowd <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-600">Favorites</span>
                             </motion.h2>
                             <div className="w-24 h-0.5 bg-gradient-to-r from-primary to-transparent mb-6"></div>
                         </div>

@@ -136,7 +136,7 @@ const InteractiveMenu = () => {
                         transition={{ delay: 0.2 }}
                         className="hidden md:flex flex-col gap-2 max-w-sm text-right"
                     >
-                        <p className="text-gray-300 text-lg leading-relaxed font-serif italic tracking-wide font-medium">"Swipe to discover our most prized creations, each crafted with passion and precision to ignite your senses."</p>
+                        <p className="text-gray-300 text-lg leading-relaxed font-sans italic tracking-wide font-medium">"Swipe to discover our most prized creations, each crafted with passion and precision to ignite your senses."</p>
                         <div className="h-[2px] w-12 bg-primary self-end mt-2"></div>
                     </motion.div>
                 </div>
